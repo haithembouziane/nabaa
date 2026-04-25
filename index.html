@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدرسة أثر - المصحف التفاعلي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div id="entry-page">
+        <div class="logo-main">
+            <img src="images/logo.jpg" onerror="this.src='https://i.ibb.co/Xf8P7m6/athar-logo.png'">
+        </div>
+        <h1 style="color: var(--gold);">مدرسة أثر القرآنية</h1>
+        <p>مشروع مادة المعلوماتية - سورة النبأ</p>
+        <button class="btn" style="padding: 15px 40px; font-size: 1.4rem;" onclick="enterApp()">دخول المصحف</button>
+    </div>
+
+    <div class="main-app" id="mainApp">
+        <div class="info-card">
+            <h3 style="margin: 0; color: var(--gold);">معلومات السورة:</h3>
+            <p>سورة النبأ | مكية | عدد آياتها: 40 | ترتيبها: 78 | سميت بهذا الاسم لافتتاحها بخبر يوم القيامة (النبأ العظيم).</p>
+        </div>
+
+        <div class="quran-container" id="quranBody">
+            <div style="text-align: center; font-size: 2.5rem; color: var(--dark-green); border-bottom: 3px double var(--gold); padding-bottom: 10px; margin-bottom: 20px;">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+        </div>
+        <!-- Gallery -->
+        <div class="gallery" id="gallery">
+            <h3 style="margin-top:20px;color:var(--gold);">معرض الصور</h3>
+            <div class="gallery-grid">
+                <img src="images/gallery01.jpeg" alt="صورة 1" onclick="openImage(this.src)">
+                <img src="images/gallery02.jpeg" alt="صورة 2" onclick="openImage(this.src)">
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="closeModal()"></div>
+    <div class="modal" id="modal">
+        <h3 id="mTitle" style="color: var(--dark-green);"></h3>
+        <p id="mBody" style="font-size: 1.3rem; line-height: 1.8;"></p>
+        <button class="btn" style="width: 100%;" onclick="closeModal()">إغلاق</button>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
