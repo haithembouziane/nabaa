@@ -111,3 +111,63 @@ function playAudio(id) {
     audio = new Audio(filename);
     audio.play().catch(err => console.error('Audio play failed:', err));
 }
+
+// Fullscreen Gallery Functions
+function openFullscreenGallery() {
+    if (event) event.stopPropagation();
+    const gallery = document.getElementById('fullscreenGallery');
+    const modal = document.getElementById('modal');
+    const overlay = document.getElementById('overlay');
+    
+    // Make sure modal is hidden
+    modal.style.display = 'none';
+    overlay.style.display = 'none';
+    
+    gallery.classList.add('active');
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    
+    // Prevent scrolling on body
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
+}
+
+function closeFullscreenGallery() {
+    const gallery = document.getElementById('fullscreenGallery');
+    gallery.classList.remove('active');
+    document.documentElement.style.overflow = 'auto';
+    document.body.style.overflow = 'auto';
+    document.body.style.position = 'static';
+}
+
+// Close fullscreen gallery when pressing Escape
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const gallery = document.getElementById('fullscreenGallery');
+        if (gallery.classList.contains('active')) {
+            closeFullscreenGallery();
+        }
+    }
+});
+
+// Handle orientation changes for responsive fullscreen gallery
+window.addEventListener('orientationchange', function() {
+    const gallery = document.getElementById('fullscreenGallery');
+    if (gallery.classList.contains('active')) {
+        // Force recalculation on orientation change
+        gallery.style.display = 'none';
+        setTimeout(() => {
+            gallery.style.display = 'flex';
+        }, 100);
+    }
+});
+
+// Handle resize events
+window.addEventListener('resize', function() {
+    const gallery = document.getElementById('fullscreenGallery');
+    if (gallery.classList.contains('active')) {
+        // Ensure gallery stays fullscreen on resize
+        gallery.style.width = '100%';
+        gallery.style.height = '100%';
+    }
+});

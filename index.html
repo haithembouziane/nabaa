@@ -29,7 +29,7 @@
         </div>
         <!-- Gallery -->
         <div class="gallery" id="gallery">
-            <h3 style="margin-top:20px;color:var(--gold);">معرض الصور</h3>
+            <h3 style="margin-top:20px;color:var(--gold);cursor:pointer;" onclick="openFullscreenGallery()">معرض الصور</h3>
             <div class="gallery-grid">
                 <img src="images/nabaa1.jpeg" alt="صورة 1" onclick="openImage(this.src)">
                 <img src="images/nabaa2.jpeg" alt="صورة 2" onclick="openImage(this.src)">
@@ -43,6 +43,15 @@
         <h3 id="mTitle" style="color: var(--dark-green);"></h3>
         <p id="mBody" style="font-size: 1.3rem; line-height: 1.8;"></p>
         <button class="btn" style="width: 100%;" onclick="closeModal()">إغلاق</button>
+    </div>
+
+    <!-- Fullscreen Gallery -->
+    <div class="fullscreen-gallery" id="fullscreenGallery">
+        <button class="close-gallery-btn" onclick="closeFullscreenGallery()">✕</button>
+        <div class="fullscreen-gallery-content" id="fullscreenGalleryContent">
+            <img src="images/nabaa1.jpeg" alt="صورة 1">
+            <img src="images/nabaa2.jpeg" alt="صورة 2">
+        </div>
     </div>
 
     <script src="js/script.js"></script>
